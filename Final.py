@@ -1,8 +1,8 @@
 import sys
-inputImageFileName = "Image.jpg"
-OutputTextFileName = "Output.txt"
+inputImageFileName = "Image.jpg"    #Input image file location
+OutputTextFileName = "Output.txt"   #Output text file location
 from PIL import Image, ImageDraw, ImageFont
-font = ImageFont.load_default() # load default bitmap monospaced font
+font = ImageFont.load_default()
 (chrx, chry) = font.getsize(chr(32))
 weights = []
 for i in range(32, 127):
@@ -18,7 +18,7 @@ image = Image.open(inputImageFileName)
 imgx = int(imgx / chrx)
 imgy = int(imgy / chry)
 image = image.resize((imgx, imgy), Image.BICUBIC)
-image = image.convert("L") # convert to grayscale
+image = image.convert("L")
 pixels = image.load()
 output = open(OutputTextFileName, "w")
 for y in range(imgy):
